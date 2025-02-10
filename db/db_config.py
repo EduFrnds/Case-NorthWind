@@ -20,9 +20,10 @@ class Config:
             "password": self.db_pass,
             "host": self.db_host,
             "port": self.db_port,
+            "options": "-c client_encoding=UTF-8"
         }
         self.engine = create_engine(
-            f"postgresql://{self.db_user}:{self.db_pass}@{self.db_host}:{self.db_port}/{self.db_name}"
+            f"postgresql://{self.db_user}:{self.db_pass}@{self.db_host}:{self.db_port}/{self.db_name}?client_encoding=UTF-8"
         )
 
     def get_engine(self):
