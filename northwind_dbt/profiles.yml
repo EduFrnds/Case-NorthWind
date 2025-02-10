@@ -1,0 +1,14 @@
+northwind_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: postgres
+      password: sql12345
+      port: 5432
+      dbname: northwind
+      schema: public
+      threads: 4
+      keepalives_idle: 0
+
