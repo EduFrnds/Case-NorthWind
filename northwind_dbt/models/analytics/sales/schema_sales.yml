@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: kpi_avg_order_value
+    description: "Métrica de valor médio de pedido por cliente."
+    columns:
+      - name: customer_id
+        description: "ID único do cliente."
+        tests:
+          - not_null
+          - unique
+
+      - name: avg_order_value_per_customer
+        description: "Valor médio dos pedidos do cliente."
+        tests:
+          - not_null
+
+  - name: kpi_avg_items_per_order
+    description: "Métrica de itens médio por pedido."
+    columns:
+      - name: avg_items_per_order
+        description: "Quantidade média de itens por pedido."
+        tests:
+          - not_null
+
+  - name: kpi_customer_purchase_insights
+    description: "Métrica de frequência de compra por cliente."
+    columns:
+      - name: customer_id
+        description: "ID único do cliente."
+        tests:
+          - not_null
+          - unique
+
+      - name: total_orders
+        description: "Total de pedidos do cliente."
+        tests:
+          - not_null
+
+      - name: total_spent
+        description: "Total gasto pelo cliente."
+        tests:
+          - not_null
+
+  - name: kpi_total_revenue
+    description: "Métrica de receita total."
+    columns:
+      - name: total_revenue
+        description: "Receita total."
+        tests:
+          - not_null

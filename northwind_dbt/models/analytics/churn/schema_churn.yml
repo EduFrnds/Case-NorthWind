@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: kpi_churn_rate_by_year
+    description: "Mede a taxa de churn dos clientes a cada ano, mostrando quantos clientes não retornaram para comprar novamente."
+    columns:
+      - name: churn_year
+        description: "Ano em que o churn foi calculado."
+        tests:
+          - not_null
+
+      - name: churn_rate
+        description: "Percentual de clientes que deixaram de comprar em um determinado ano."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "churn_rate >= 0"
+
+  - name: kpi_customer_lifetime_value_by_year
+    description: "Calcula o Customer Lifetime Value (CLV) por ano, indicando quanto um cliente gera de receita ao longo do tempo."
+    columns:
+      - name: customer_id
+        description: "ID único do cliente."
+        tests:
+          - not_null
+
+      - name: order_year
+        description: "Ano em que os pedidos do cliente foram feitos."
+        tests:
+          - not_null
+
+      - name: total_orders
+        description: "Número total de pedidos feitos pelo cliente no ano."
+        tests:
+          - not_null
+#          - dbt_utils.expression_is_true:
+#              expression: "total_orders >= 0"
+
+      - name: total_spent
+        description: "Valor total gasto pelo cliente no ano."
+        tests:
+          - not_null
+#          - dbt_utils.expression_is_true:
+#              expression: "total_spent >= 0"
+
