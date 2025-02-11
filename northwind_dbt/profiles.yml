@@ -8,7 +8,7 @@ northwind_dbt:
       password: sql12345
       port: 5432
       dbname: northwind
-      schema: public
+      schema: northwind
       threads: 4
       keepalives_idle: 0
 

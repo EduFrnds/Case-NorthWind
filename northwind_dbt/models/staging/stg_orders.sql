@@ -1,9 +1,9 @@
-{{ config(materialized='view') }}
+{{ config( materialized='view', schema='data_staging') }}
 
 WITH source AS (
     -- Carregando os dados brutos da tabela 'orders'
     SELECT *
-    FROM {{ source('raw', 'orders') }}
+    FROM {{ source('data_raw', 'orders') }}
 ),
 
 renamed AS (

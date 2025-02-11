@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view', schema='data_analytics') }}
 
 WITH source AS (
     -- Pegando os dados transformados de order_details

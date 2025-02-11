@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: kpi_average_order_value
+    description: "Métrica de valor médio de pedido por cliente."
+    columns:
+      - name: customer_id
+        description: "ID único do cliente."
+        tests:
+          - not_null
+
+      - name: avg_order_value
+        description: "Valor médio dos pedidos do cliente."
+        tests:
+          - not_null
+
+  - name: kpi_total_revenue
+    description: "Métrica de total de receita gerada."
+    columns:
+      - name: total_revenue
+        description: "Receita total da empresa."
+        tests:
+          - not_null
+          - positive_values

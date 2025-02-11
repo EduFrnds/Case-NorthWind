@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: data_raw  # Nome da origem
+    database: northwind  # Nome do banco de dados
+    schema: data_raw  # Nome do schema onde as tabelas estão no PostgreSQL
+    tables:
+      - name: order_details
+      - name: orders
+      - name: products
+      - name: customers
+      - name: categories
