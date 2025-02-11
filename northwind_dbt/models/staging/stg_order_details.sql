@@ -11,6 +11,7 @@ renamed AS (
         product_id,
         unit_price,
         quantity,
+        discount,
         unit_price * quantity AS total_price
     FROM source
 )

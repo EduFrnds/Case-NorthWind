@@ -8,6 +8,7 @@ WITH source AS (
 renamed AS (
     SELECT
         customer_id,
+        contact_name,
         company_name,
         country
     FROM source
