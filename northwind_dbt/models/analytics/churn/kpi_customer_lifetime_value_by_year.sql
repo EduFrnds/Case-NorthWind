@@ -1,4 +1,3 @@
--- Configuração do modelo dbt
 {{ config(materialized='view', schema='data_analytics') }}
 
 WITH customer_orders AS (

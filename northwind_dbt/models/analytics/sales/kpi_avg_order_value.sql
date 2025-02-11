@@ -1,7 +1,4 @@
-{{ config(
-    materialized='view',
-    schema='data_analytics'
-) }}
+{{ config(materialized='view', schema='data_analytics') }}
 
 WITH order_details AS (
     SELECT
