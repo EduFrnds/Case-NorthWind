@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: kpi_avg_order_value
-    description: "Métrica de valor médio de pedido por cliente."
+  - name: dim_customers
+    description: "Dimensão de clientes."
     columns:
       - name: customer_id
         description: "ID único do cliente."
@@ -10,8 +10,138 @@ models:
           - not_null
           - unique
 
-      - name: avg_order_value_per_customer
-        description: "Valor médio dos pedidos do cliente."
+      - name: company_name
+        description: "Nome da empresa do cliente."
+        tests:
+          - not_null
+
+      - name: country
+        description: "Pais do cliente."
+        tests:
+          - not_null
+
+      - name: contact_name
+        description: "Nome do contato do cliente."
+        tests:
+          - not_null
+
+  - name: dim_dates
+    description: "Dimensão de datas."
+    columns:
+      - name: date
+        description: "Data."
+        tests:
+          - not_null
+
+      - name: year
+        description: "Ano."
+        tests:
+          - not_null
+
+      - name: month
+        description: "Mês."
+        tests:
+          - not_null
+
+      - name: day
+        description: "Dia."
+        tests:
+          - not_null
+
+      - name: weekday
+        description: "Dia da semana."
+        tests:
+          - not_null
+
+  - name: dim_products
+    description: "Dimensão de produtos."
+    columns:
+      - name: product_id
+        description: "ID único do produto."
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: "Nome do produto."
+        tests:
+          - not_null
+
+      - name: category_id
+        description: "ID único da categoria do produto."
+        tests:
+          - not_null
+
+      - name: category_name
+        description: "Nome da categoria do produto."
+        tests:
+          - not_null
+
+      - name: units_in_stock
+        description: "Quantidade em estoque do produto."
+        tests:
+          - not_null
+
+      - name: units_on_order
+        description: "Quantidade em pedido do produto."
+        tests:
+          - not_null
+
+      - name: discontinued
+        description: "Indica se o produto foi descontinuado."
+        tests:
+          - not_null
+
+  - name: fact_sales
+    description: "Fato de vendas."
+    columns:
+      - name: order_id
+        description: "ID único do pedido."
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "ID único do cliente."
+        tests:
+          - not_null
+
+      - name: employee_id
+        description: "ID único do funcionário."
+        tests:
+          - not_null
+
+      - name: order_date
+        description: "Data do pedido."
+        tests:
+          - not_null
+
+      - name: shipping_cost
+        description: "Custo de envio."
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "ID único do produto."
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: "Preço unitário."
+        tests:
+          - not_null
+
+      - name: quantity
+        description: "Quantidade vendida."
+        tests:
+          - not_null
+
+      - name: discount
+        description: "Desconto."
+        tests:
+          - not_null
+
+      - name: total_amount
+        description: "Valor total da venda."
         tests:
           - not_null
 
@@ -23,8 +153,44 @@ models:
         tests:
           - not_null
 
-  - name: kpi_customer_purchase_insights
-    description: "Métrica de frequência de compra por cliente."
+      - name: month
+        description: "Mês."
+        tests:
+          - not_null
+
+  - name: kpi_avg_order_value
+    description: "Métrica de valor médio de pedido por cliente."
+    columns:
+      - name: month
+        description: "Mês."
+        tests:
+          - not_null
+
+      - name: avg_order_value
+        description: "Valor médio dos pedidos do cliente."
+        tests:
+          - not_null
+
+  - name: kpi_best_selling_products
+    description: "Métrica de produtos mais vendidos."
+    columns:
+      - name: product_name
+        description: "Nome do produto."
+        tests:
+          - not_null
+
+      - name: total_quantity_sold
+        description: "Quantidade total vendida."
+        tests:
+          - not_null
+
+      - name: total_revenue
+        description: "Receita total."
+        tests:
+          - not_null
+
+  - name: kpi_customer_lifetime_value
+    description: "Calcula o Customer Lifetime Value (CLV) por ano, indicando quanto um cliente gera de receita ao longo do tempo."
     columns:
       - name: customer_id
         description: "ID único do cliente."
@@ -32,20 +198,43 @@ models:
           - not_null
           - unique
 
-      - name: total_orders
-        description: "Total de pedidos do cliente."
+      - name: total_revenue
+        description: "Receita total."
         tests:
           - not_null
 
-      - name: total_spent
-        description: "Total gasto pelo cliente."
+      - name: order_count
+        description: "Quantidade de pedidos."
+        tests:
+          - not_null
+
+      - name: lifetime_value
+        description: "Valor de vida do cliente."
+        tests:
+          - not_null
+
+  - name: kpi_order_count
+    description: "Mede o número total de pedidos realizados em cada mês."
+    columns:
+      - name: order_count
+        description: "Quantidade de pedidos."
+        tests:
+          - not_null
+
+      - name: month
+        description: "Mês."
         tests:
           - not_null
 
   - name: kpi_total_revenue
-    description: "Métrica de receita total."
+    description: "Mede quanto dinheiro a empresa gerou no período."
     columns:
       - name: total_revenue
         description: "Receita total."
+        tests:
+          - not_null
+
+      - name: month
+        description: "Mês."
         tests:
           - not_null

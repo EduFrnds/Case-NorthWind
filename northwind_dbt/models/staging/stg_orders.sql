@@ -8,9 +8,11 @@ WITH source AS (
 renamed AS (
     SELECT
         order_id,
+        employee_id,
         customer_id,
         order_date,
         shipped_date,
+        freight,
 
         CASE
             WHEN shipped_date IS NOT NULL THEN 1

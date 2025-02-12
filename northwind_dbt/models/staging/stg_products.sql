@@ -10,7 +10,10 @@ renamed AS (
         product_id,
         product_name,
         category_id,
-        discontinued
+        discontinued,
+        unit_price,
+        units_in_stock,
+        units_on_order
     FROM source
 )
 
