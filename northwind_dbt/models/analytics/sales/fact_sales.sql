@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='table',
+        materialized='view',
         schema='data_analytics',
         alias='fact_sales',
         tags=['fact_table'],

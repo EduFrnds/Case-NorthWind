@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='table',
+        materialized='view',
         schema='data_analytics',
         alias='dim_products',
         tags=['dimension'],

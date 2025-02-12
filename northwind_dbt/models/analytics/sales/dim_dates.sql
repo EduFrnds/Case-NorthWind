@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='table',
+        materialized='view',
         schema='data_analytics',
         alias='dim_dates',
         tags=['dimension'],
@@ -10,7 +10,7 @@
 
 WITH dates AS (
     SELECT DISTINCT
-        order_date::DATE AS date_id,
+        order_date::DATE AS date,
         EXTRACT(YEAR FROM order_date::DATE) AS year,
         EXTRACT(MONTH FROM order_date::DATE) AS month,
         EXTRACT(DAY FROM order_date::DATE) AS day,
@@ -19,7 +19,7 @@ WITH dates AS (
 )
 
 SELECT
-    d.date_id,
+    d.date,
     d.year,
     d.month,
     d.day,

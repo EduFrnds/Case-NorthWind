@@ -1,5 +1,5 @@
 {{ config(
-    materialized='table',
+    materialized='view',
     schema='data_analytics',
     alias='kpi_churn_rate',
     tags=['kpi']
@@ -19,7 +19,7 @@ churned_customers AS (
         month,
         COUNT(DISTINCT customer_id) AS churned_customers
     FROM customers_per_month
-    WHERE num_orders = 1  -- Clientes que compraram apenas uma vez e nunca mais voltaram
+    WHERE num_orders = 1
     GROUP BY 1
 ),
 

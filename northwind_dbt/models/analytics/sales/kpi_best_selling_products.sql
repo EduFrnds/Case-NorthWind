@@ -1,5 +1,5 @@
 {{ config(
-    materialized='table',
+    materialized='view',
     schema='data_analytics',
     alias='kpi_best_selling_products',
     tags=['kpi']

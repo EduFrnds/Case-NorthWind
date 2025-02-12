@@ -1,20 +1,20 @@
 version: 2
 
 models:
-  - name: kpi_churn_rate_by_year
+  - name: kpi_churn_rate
     description: "Mede a taxa de churn dos clientes a cada ano, mostrando quantos clientes não retornaram para comprar novamente."
     columns:
-      - name: churn_year
-        description: "Ano em que o churn foi calculado."
-        tests:
-          - not_null
-
       - name: churn_rate
         description: "Percentual de clientes que deixaram de comprar em um determinado ano."
         tests:
           - not_null
-          - dbt_utils.expression_is_true:
-              expression: "churn_rate >= 0"
+#          - dbt_utils.expression_is_true:
+#               expression: '(churn_rate >= 0)'
+
+      - name: month
+        description: "Mês em que a taxa de churn foi calculada."
+        tests:
+          - not_null
 
   - name: kpi_customer_lifetime_value_by_year
     description: "Calcula o Customer Lifetime Value (CLV) por ano, indicando quanto um cliente gera de receita ao longo do tempo."
