@@ -10,3 +10,4 @@ sources:
       - name: products
       - name: customers
       - name: categories
+      - name: shippers

@@ -14,7 +14,9 @@ WITH order_data AS (
         customer_id,
         employee_id,
         order_date,
-        freight AS shipping_cost
+        freight AS shipping_cost,
+        shipper_id,
+        shipper_name
     FROM {{ ref('stg_orders') }}
 ),
 
@@ -35,6 +37,8 @@ SELECT
     o.employee_id,
     o.order_date,
     o.shipping_cost,
+    o.shipper_id,
+    o.shipper_name,
     od.product_id,
     od.unit_price,
     od.quantity,

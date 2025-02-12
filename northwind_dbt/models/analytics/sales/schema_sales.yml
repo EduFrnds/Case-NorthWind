@@ -92,6 +92,20 @@ models:
         tests:
           - not_null
 
+  - name: dim_shippers
+    description: "Dimensão de transportadores."
+    columns:
+      - name: shipper_id
+        description: "ID único do transportador."
+        tests:
+          - not_null
+          - unique
+
+      - name: shipper_name
+        description: "Nome do transportador."
+        tests:
+          - not_null
+
   - name: fact_sales
     description: "Fato de vendas."
     columns:
@@ -117,6 +131,16 @@ models:
 
       - name: shipping_cost
         description: "Custo de envio."
+        tests:
+          - not_null
+
+      - name: shipper_id
+        description: "ID único do transportador."
+        tests:
+          - not_null
+
+      - name: shipper_name
+        description: "Nome do transportador."
         tests:
           - not_null
 
