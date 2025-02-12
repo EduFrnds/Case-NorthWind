@@ -1,18 +1,8 @@
-{{
-    config(
-        materialized='view',
-        schema='data_analytics',
-        alias='dim_products',
-        tags=['dimension'],
-        unique_key='product_id'
-    )
-}}
-
 WITH products AS (
     SELECT
         product_id,
         product_name,
-        category_id,
+        category_id::TEXT AS category_id,  -- Convertendo para STRING
         unit_price,
         units_in_stock,
         units_on_order,
@@ -22,7 +12,7 @@ WITH products AS (
 
 categories AS (
     SELECT
-        category_id,
+        category_id::TEXT AS category_id,  -- Convertendo para STRING
         category_name
     FROM {{ ref('stg_categories') }}
 )
@@ -37,4 +27,4 @@ SELECT
     p.discontinued
 FROM products p
 LEFT JOIN categories c
-ON p.category_id = c.category_id
+ON p.category_id = c.category_id  -- Agora os tipos são iguais

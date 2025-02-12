@@ -12,7 +12,12 @@ class Load:
         try:
             logging.info(f"Enviando dados para a tabela '{table_name}'")
 
-            df.to_sql(table_name, self.db.get_engine(), if_exists='replace', index=False)
+            df.to_sql(
+                table_name,
+                schema='data_raw',
+                con=self.db.get_engine(),
+                if_exists='append',
+                index=False)
             logging.info(f"Tabela '{table_name}' atualizada com sucesso.")
         except Exception as e:
             logging.error(f"Erro ao enviar dados para '{table_name}': {e}")

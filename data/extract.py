@@ -14,7 +14,14 @@ class Extract:
     def read_csv(file_path: str):
 
         try:
-            return pd.read_csv(file_path, encoding='UTF-8', sep=';', on_bad_lines='skip', skip_blank_lines=True)
+            return pd.read_csv(
+                file_path,
+                encoding='UTF-8',
+                sep=r'[;,]',
+                engine='python',
+                on_bad_lines='skip',
+                skip_blank_lines=True
+            )
         except Exception as e:
             logging.error(f"Erro ao ler arquivo {file_path}: {e}")
             return pd.DataFrame()
