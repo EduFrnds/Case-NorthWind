@@ -29,7 +29,7 @@ if __name__ == "__main__":
     with Connection() as db:
         db.execute("SHOW client_encoding;")
         encoding_result = db.fetchall()
-        logging.info(f"Codificação do banco de dados: {encoding_result[0][0]}")  # Deve ser UTF-8
+        logging.info(f"Codificação do banco de dados: {encoding_result[0][0]}")
 
     # Caminho da pasta de arquivos CSV
     folder_path = r"C:\\Users\\Eduardo\\Desktop\\dados northwind"
