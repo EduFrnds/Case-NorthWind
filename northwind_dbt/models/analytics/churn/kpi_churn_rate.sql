@@ -27,7 +27,7 @@ next_month_purchases AS (
     FROM active_customers ac
     LEFT JOIN {{ ref('fact_sales') }} f
     ON ac.customer_id = f.customer_id
-    AND DATE_TRUNC('month', f.order_date::DATE) = DATE_TRUNC('month', ac.month + INTERVAL '1 month') -- 🔥 Corrigido
+    AND DATE_TRUNC('month', f.order_date::DATE) = DATE_TRUNC('month', ac.month + INTERVAL '1 month')
 ),
 
 churned_customers AS (
@@ -35,7 +35,7 @@ churned_customers AS (
         current_month AS month,
         COUNT(DISTINCT customer_id) AS churned_customers
     FROM next_month_purchases
-    WHERE next_month IS NULL  -- Cliente que não comprou no mês seguinte
+    WHERE next_month IS NULL
     GROUP BY 1
 ),
 

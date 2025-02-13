@@ -24,8 +24,8 @@ churn_status AS (
         l.last_purchase_month,
         lm.latest_active_month,
         CASE
-            WHEN l.last_purchase_month = lm.latest_active_month THEN 0  -- Cliente ativo
-            ELSE 1  -- Cliente churned
+            WHEN l.last_purchase_month = lm.latest_active_month THEN 0
+            ELSE 1
         END AS churn_flag
     FROM last_purchase_per_customer l
     CROSS JOIN latest_month lm
@@ -35,7 +35,7 @@ SELECT
     c.customer_id,
     c.last_purchase_month,
     c.latest_active_month,
-    c.churn_flag  -- 1 = churned, 0 = ativo
+    c.churn_flag
 FROM churn_status c
 ORDER BY c.churn_flag DESC, c.last_purchase_month
 

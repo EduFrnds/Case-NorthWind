@@ -16,30 +16,26 @@ models:
         tests:
           - not_null
 
-  - name: kpi_customer_lifetime_value_by_year
-    description: "Calcula o Customer Lifetime Value (CLV) por ano, indicando quanto um cliente gera de receita ao longo do tempo."
+  - name: kpi_churn_rate_per_customer
+    description: "Mede a taxa de churn por cliente"
     columns:
-      - name: customer_id
+      - name: client_id
         description: "ID único do cliente."
         tests:
           - not_null
+          - unique
 
-      - name: order_year
-        description: "Ano em que os pedidos do cliente foram feitos."
+      - name: churn_flag
+        description: "Indica se o cliente deixou de comprar."
         tests:
           - not_null
 
-      - name: total_orders
-        description: "Número total de pedidos feitos pelo cliente no ano."
+      - name: last_purchase_date
+        description: "Data da ultima compra do cliente."
         tests:
           - not_null
-#          - dbt_utils.expression_is_true:
-#              expression: "total_orders >= 0"
 
-      - name: total_spent
-        description: "Valor total gasto pelo cliente no ano."
+      - name: lasted_active_date
+        description: "Data da ultima atividade do cliente"
         tests:
           - not_null
-#          - dbt_utils.expression_is_true:
-#              expression: "total_spent >= 0"
-
