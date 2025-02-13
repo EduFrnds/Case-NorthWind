@@ -14,17 +14,17 @@ TestTecnicoIndicium/
 |─ logs/                    # Logs de execução
 |─ northwind_dbt/           # Diretório dbt para modelagem de dados
 |   |─ dbt_packages/        # Pacotes dbt instalados
-|   |─ models/             # Modelos dbt
-|       |─ analytics/      # Análises
-|       |─ staging/       # Camada staging
+|   |─ models/              # Modelos dbt
+|       |─ analytics/       # Análises
+|       |─ staging/         # Camada staging
 |─ target/                  # Saída do dbt
 |─ tests/                   # Testes automatizados
-|─ .gitignore                # Arquivos a serem ignorados pelo Git
-|─ dbt_project.yml           # Configuração do projeto dbt
-|─ profiles.yml              # Perfil de conexão dbt
-|─ main.py                   # Script principal
-|─ requirements.txt           # Dependências do projeto
-|─ README.md                 # Documentação do projeto
+|─ .gitignore               # Arquivos a serem ignorados pelo Git
+|─ dbt_project.yml          # Configuração do projeto dbt
+|─ profiles.yml             # Perfil de conexão dbt
+|─ main.py                  # Script principal
+|─ requirements.txt         # Dependências do projeto
+|─ README.md                # Documentação do projeto
 ```
 
 ## Requisitos
