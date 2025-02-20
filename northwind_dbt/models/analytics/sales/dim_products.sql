@@ -3,7 +3,7 @@
         materialized='view',
         schema='data_analytics',
         alias='dim_products',
-        tags=['dim_table'],
+        tags=['dimension'],
         unique_key='product_id'
     )
 }}
