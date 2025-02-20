@@ -16,11 +16,6 @@ def test_connection():
     except Exception as e:
         logging.error(f"Erro ao testar a conexão: {e}")
 
-
-def upload_to_postgres():
-    pass
-
-
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     logging.info("Iniciando processo de extração e carga de dados...")
