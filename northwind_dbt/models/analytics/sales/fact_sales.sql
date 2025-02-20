@@ -3,7 +3,7 @@
         materialized='view',
         schema='data_analytics',
         alias='fact_sales',
-        tags=['fact_table'],
+        tags=['fact'],
         unique_key='order_id'
     )
 }}
