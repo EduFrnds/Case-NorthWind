@@ -8,7 +8,6 @@
     )
 }}
 
-
 WITH products AS (
     SELECT
         product_id,
