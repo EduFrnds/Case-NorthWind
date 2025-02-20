@@ -25,4 +25,3 @@ SELECT
     c.country
 
 FROM customers c
-
