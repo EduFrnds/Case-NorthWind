@@ -1,4 +1,4 @@
-# TestTecnicoIndicium
+# Case NorthWind
 
 ## Descrição
 Este projeto foi desenvolvido para processar e analisar dados da empresa Northwind. Ele inclui a extração, transformação e carga de dados (ETL), utilizando `dbt` para modelagem de dados.
