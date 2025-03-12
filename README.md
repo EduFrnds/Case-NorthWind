@@ -1,7 +1,7 @@
 # TestTecnicoIndicium
 
 ## Descrição
-Este projeto foi desenvolvido como parte de um desafio técnico e tem como objetivo processar e analisar dados da empresa Northwind. Ele inclui a extração, transformação e carga de dados (ETL), utilizando `dbt` para modelagem de dados.
+Este projeto foi desenvolvido para processar e analisar dados da empresa Northwind. Ele inclui a extração, transformação e carga de dados (ETL), utilizando `dbt` para modelagem de dados.
 
 ## Estrutura do Projeto
 ```
