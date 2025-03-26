@@ -5,7 +5,7 @@ Este projeto foi desenvolvido para processar e analisar dados da empresa Northwi
 
 ## Estrutura do Projeto
 ```
-TestTecnicoIndicium/
+
 |─ .venv/                   # Ambiente virtual Python
 |─ data/                    # Scripts de extração e carga
 |   |─ extract.py
